@@ -1,25 +1,26 @@
 # Run from Git
 
-1. clone the repository
-2. make sure the generated folder in ur project is empty
-3. runData and wait for it to finish
-4. runClient to start minecraft with the mod installed
+1. Clone the repository
+2. Make sure the `src/generated` folder in your project is empty.
+3. Run the Gradle task `runData` and wait for it to finish.
+4. Run the Gradle task `runClient` to start Minecraft in developer mode with the mod installed.
 
 # Export Mod as Jar
 
-1. clone repository
-2. make sure generated folder in ur project is empty
-3. runData and wait fot it to finish
-4. run build gradle task
-5. jar is in ur project folder under build/libs
+1. Clone repository
+2. Make sure the `src/generated` folder in your project is empty.
+3. Run the Gradle task `runData` and wait for it to finish.
+3. Run the Gradle task `build` and wait for it to finish.
+5. The `jar` is in your project folder under `build/libs`.
 
-# Add own brushing recipes
-## Brushing recipe
-this is the recipe where u can have the brush and the item in the hand and right click on each of them to brush it.
-1. go to core/datagen/ModRecipeProvider there you should find a method named buildRecipes
-2. use the BrushingRecipeBuilder class to make a recipe
-3. in the end its very important to call the .build method and make sure that there arent two recipes with the same name. The recipe is normally named after the output item
-4. the just delete the generated folder and runData again
-## Water Brushing recipe
-this recipe is meant when u right click with an item on water or have a water bottle in the other hand
-steps are the same as with teh brushing recipe just at step 2 use the WaterWashingRecipeBuilder instead.
+# Add Custom Brushing Recipes
+## Brushing Recipe
+Brushing recipes are applied when a brush is right-clicked with another item in the other hand.
+1. Go to `core/datagen/ModRecipeProvider`. You should find a method named `buildRecipes`.
+2. Use the `BrushingRecipeBuilder` class to make a recipe.
+3. Ensure that you call the `.build` method, and make sure that no two recipes have the same name. The recipe is normally named after the output item.
+4. Delete the generated folder (or use the Gradle task `clean`) and `runData` again.
+
+## Water Brushing (Washing) Recipe
+Water Brushing recipes are applied when the player right-clicks on water when holding an item or right clicks while holding an item with a water bottle in the other hand.
+The process to add a new Water Brushing recipe is the same as for adding a normal Brushing recipe, with one difference: at step 2, use the `WaterWashingRecipeBuilder` instead.
